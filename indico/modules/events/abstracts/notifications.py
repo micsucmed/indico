@@ -88,10 +88,14 @@ class StateCondition(EmailNotificationCondition):
 
     @classmethod
     def _iter_available_values(cls, **kwargs):
-        return ((s.value, s.title) for s in AbstractState)
+        for s in AbstractState:
+            yield (s.value, s.title)
+        yield ('track_change', 'Track change')
 
     @classmethod
-    def check(cls, values, abstract, **kwargs):
+    def check(cls, values, abstract, track_change, **kwargs):
+        if track_change:
+            return 'track_change' in values
         return abstract.state in values
 
     @classmethod
