@@ -26,6 +26,7 @@ export const EditableState = {
   needs_submitter_confirmation: 'needs_submitter_confirmation',
   needs_submitter_changes: 'needs_submitter_changes',
   accepted: 'accepted',
+  accepted_submitter: 'accepted_submitter',
   rejected: 'rejected',
 };
 
@@ -68,6 +69,7 @@ export const EditableStatus = {
   [EditableState.ready_for_review]: Translate.string('Ready for review'),
   [EditableState.needs_submitter_confirmation]: Translate.string('Needs submitter confirmation'),
   [EditableState.accepted]: Translate.string('Accepted'),
+  [EditableState.accepted_submitter]: Translate.string('Accepted by Submitter'),
   [EditableState.needs_submitter_changes]: Translate.string('Needs submitter changes'),
   [EditableState.rejected]: Translate.string('Rejected'),
 };

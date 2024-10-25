@@ -33,7 +33,7 @@ class EditableType(RichIntEnum):
 
 class EditableState(RichIntEnum):
     __titles__ = [None, _('New'), _('Ready for Review'), _('Needs Confirmation'), _('Needs Changes'),
-                  _('Accepted'), _('Rejected')]
+                  _('Accepted'), _('Accepted by Submitter'), _('Rejected')]
     __css_classes__ = [None, 'highlight', 'ready', 'editing-make-changes', 'editing-request-changes',
                        'success', 'editing-rejected']
 
@@ -42,7 +42,8 @@ class EditableState(RichIntEnum):
     needs_submitter_confirmation = 3
     needs_submitter_changes = 4
     accepted = 5
-    rejected = 6
+    accepted_submitter = 6
+    rejected = 7
 
 
 class Editable(db.Model):
@@ -299,7 +300,7 @@ def _mappers_configured():
         RevisionType.new: EditableState.new,
         RevisionType.ready_for_review: EditableState.ready_for_review,
         RevisionType.needs_submitter_confirmation: EditableState.needs_submitter_confirmation,
-        RevisionType.changes_acceptance: EditableState.accepted,
+        RevisionType.changes_acceptance: EditableState.accepted_submitter,
         RevisionType.changes_rejection: EditableState.needs_submitter_changes,
         RevisionType.needs_submitter_changes: EditableState.needs_submitter_changes,
         RevisionType.acceptance: EditableState.accepted,
