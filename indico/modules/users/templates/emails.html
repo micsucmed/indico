@@ -1,8 +1,6 @@
 {% extends 'users/base.html' %}
 {% from 'forms/_form.html' import form_header, form_rows, form_footer  %}
 
-{% set mailing_lists = template_hook('mailing-lists') %}
-
 {% block user_content %}
     <div class="i-box-group vert">
         <div class="i-box">
@@ -48,9 +46,6 @@
                 {% endcall %}
             </div>
         </div>
-    </div>
-    <div>
-        {{ mailing_lists }}
     </div>
     <script>
         $('.js-delete-email').on('click', function(e){
