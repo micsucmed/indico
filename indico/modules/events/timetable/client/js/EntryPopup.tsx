@@ -156,19 +156,41 @@ function EntryPopupContent({
                 <Button icon="trash" onClick={onDelete} />
               )}
               {type === EntryType.SessionBlock && (
-                <Dropdown button inline icon="ellipsis vertical">
-                  <DropdownMenu>
-                    <DropdownItem>
-                      {/* Implement session edit or redirect to page */}
-                      <Icon name="edit" />
-                      <Translate>Edit session</Translate>
-                    </DropdownItem>
-                    <DropdownItem>
-                      <Icon name="shield" />
-                      <Translate>Edit session protection</Translate>
-                    </DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
+                <>
+                  <Popup
+                    content={<Translate>Add to calendar</Translate>}
+                    inverted
+                    size="mini"
+                    trigger={
+                      <Dropdown button inline icon="add to calendar">
+                        <DropdownMenu>
+                          <DropdownItem>
+                            {/* Implement session edit or redirect to page */}
+                            <Icon name="edit" />
+                            <Translate>Add new</Translate>
+                          </DropdownItem>
+                          <DropdownItem>
+                            <Icon name="shield" />
+                            <Translate>Add existing contribution</Translate>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </Dropdown>
+                    }
+                  />
+                  <Dropdown button inline icon="ellipsis vertical">
+                    <DropdownMenu>
+                      <DropdownItem>
+                        {/* Implement session edit or redirect to page */}
+                        <Icon name="edit" />
+                        <Translate>Edit session</Translate>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <Icon name="shield" />
+                        <Translate>Edit session protection</Translate>
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                </>
               )}
             </ButtonGroup>
             <ButtonGroup>
