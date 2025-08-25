@@ -188,7 +188,7 @@ export default function ContributionEntry({
               borderRadius: 6,
             }}
           >
-            {children.length
+            {children.length && !sessionData.isPoster
               ? children.map(child => (
                   <DraggableEntry
                     key={child.id}
